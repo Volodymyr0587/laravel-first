@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DogController;
+use App\Models\Dog;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +26,13 @@ Route::get('/test', function () {
 Route::get('test/{name}', function($name) {
     return view('test', ['name' => $name]);
 });
+
+Route::get('/newdog', function () {
+    return view('newdog');
+});
+
+Route::post('/dogs', [DogController::class, 'create'])->name('dog.create');
+Route::get('/dogs', function () {
+    $dogs = Dog::all();
+    return view('dogs', ['dogs' => $dogs]);
+})->name('dogs');

@@ -15,24 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/test', function () {
-    return view('test', ['name' => 'Volodymyr']);
-});
-
-Route::get('test/{name}', function($name) {
-    return view('test', ['name' => $name]);
-});
 
 Route::get('/newdog', function () {
     return view('newdog');
 });
 
 Route::post('/dogs', [DogController::class, 'create'])->name('dog.create');
-Route::get('/dogs', function () {
+Route::get('/', function () {
     $dogs = Dog::all();
     return view('dogs', ['dogs' => $dogs]);
 })->name('dogs');

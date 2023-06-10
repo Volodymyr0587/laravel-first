@@ -14,7 +14,14 @@
     </h1>
     <ul>
         @foreach ($dogs as $dog)
-            <li>{{ $dog->name }}</li>
+            <li class="flex mb-1">
+                <span class="flex-1">{{ $dog->name }}</span>
+                <form action="{{ route('dog.delete', $dog->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="border bg-gray-200 p-1 border-black">Delete</button>
+                </form>
+            </li>
         @endforeach
     </ul>
     @include('partials.form')

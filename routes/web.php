@@ -19,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/dogs', [DogController::class, 'create'])->name('dog.create');
+
 Route::get('/', function () {
     $dogs = Dog::all();
     return view('dogs', ['dogs' => $dogs]);
 })->name('dogs');
+
+Route::delete('/dog/{id}', [DogController::class, 'delete'])->name('dog.delete');

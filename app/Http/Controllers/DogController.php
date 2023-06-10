@@ -16,4 +16,12 @@ class DogController extends Controller
 
         return to_route('dogs');
     }
+
+    public function delete($id)
+    {
+        $dog = Dog::find($id);
+        $dog->delete();
+
+        return to_route('dogs');
+    }
 }

@@ -17,6 +17,7 @@
             <li>{{ $dog->name }}</li>
         @endforeach
     </ul>
+    @include('partials.form')
 </body>
 
 </html>

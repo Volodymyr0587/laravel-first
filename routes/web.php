@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/newdog', function () {
-    return view('newdog');
-});
+
 
 Route::post('/dogs', [DogController::class, 'create'])->name('dog.create');
 Route::get('/', function () {
